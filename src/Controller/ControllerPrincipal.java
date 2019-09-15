@@ -54,7 +54,7 @@ public class ControllerPrincipal {
 			List<String> participantesFilme = cadastroView.cadastroParticipantesFilme();
 			Filme newFilme = new Filme(nomeFilme, descricao, categoria, subcategoria, participantesFilme);
 			filmes.update(filmeAnterior, newFilme);
-			System.out.print("Atualização realizada com sucesso.");
+			System.out.println("Atualização realizada com sucesso.");
 			voltarMenu();
 		} catch (FilmeNaoEncontradoException e) {
 			System.out.println(e.getMessage());
