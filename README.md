@@ -9,3 +9,8 @@ Nessa versão o sistema possui as seguintes funções:
 5. Avaliar filmes cadastrados
 
 Na consulta o usuário pode pesquisar por nome, varias categorias ao mesmo tempo, varias subcategorias ao mesmo tempo, Participantes do filme, Avaliação do filme.
+
+## ChangeLog
+
+1. Versão 1.0 - sem persistência de dados.
+2. Versão 2.0 - persistência de dados em arquivo binário.
