@@ -30,12 +30,17 @@ public class ControllerPrincipal {
 		String [] filme = cadastroView.cadastroFilme();
 		String nomeFilme = filme[0];
 		String descricao= filme[1];
-		List<String> categoria = cadastroView.cadastroCategorias();
-		List<String> subcategoria = cadastroView.cadastroSubCategorias();
-		List<String> participantesFilme = cadastroView.cadastroParticipantesFilme();
-		Filme newFilme = new Filme(nomeFilme, descricao, categoria, subcategoria, participantesFilme);
-		filmes.insert(newFilme);
-		System.out.println("Cadastro realizado com sucesso.");
+		if(!filmes.contains(nomeFilme)) {
+			List<String> categoria = cadastroView.cadastroCategorias();
+			List<String> subcategoria = cadastroView.cadastroSubCategorias();
+			List<String> participantesFilme = cadastroView.cadastroParticipantesFilme();
+			Filme newFilme = new Filme(nomeFilme, descricao, categoria, subcategoria, participantesFilme);
+			filmes.insert(newFilme);
+			System.out.println("Cadastro realizado com sucesso.");
+		}
+		else {
+			System.out.println("O titulo já está cadastrado.");
+		}
 		voltarMenu();
 	}
 	
@@ -161,6 +166,7 @@ public class ControllerPrincipal {
 			Integer nota = sc.nextInt();
 			newAvaliacao.avaliar(nota, filmeAntes);
 			filmeAntes.setClassificacao(nota);
+			avaliacao.saveAvaliacao();
 			System.out.println("Avaliação realizada com sucesso.");
 			voltarMenu();
 		} catch (FilmeNaoEncontradoException e) {

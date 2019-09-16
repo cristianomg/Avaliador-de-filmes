@@ -1,5 +1,12 @@
 package Model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,9 +14,10 @@ import Exceptions.FilmeNaoEncontradoException;
 
 public class FilmeDAO {
 	private static FilmeDAO uniqueInstance;
-	private List<Filme> listaFilmes = new ArrayList<Filme>();
+	private List<Filme> listaFilmes;
 	
 	private FilmeDAO(){
+		this.listaFilmes = this.loadFilmes();
 	}
 	
 	public static synchronized FilmeDAO getInstance() {
@@ -23,20 +31,33 @@ public class FilmeDAO {
 	
 	public void insert(Filme filme) {
 		listaFilmes.add(filme);
+		this.saveFilmes();
 		
 	}
 	public boolean remove(Filme filme) {
-		return listaFilmes.remove(filme);
+		boolean removido = listaFilmes.remove(filme);
+		this.saveFilmes();
+		return removido;
 		
 	}
 	public void update(Filme filmeAntes, Filme filmeAtualizado) throws FilmeNaoEncontradoException {
 		boolean removido = this.remove(filmeAntes);
 		if (removido) {
 			this.insert(filmeAtualizado);
+			this.saveFilmes();
 		}
 		else {
 			throw new FilmeNaoEncontradoException("Titulo não encontrado.");
 		}
+	}
+	
+	public boolean contains(String nome) {
+		for(Filme f: listaFilmes) {
+			if(f.getNomeFilme().equals(nome)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public List<Filme> getList(){
@@ -106,5 +127,43 @@ public class FilmeDAO {
 		else {
 			throw new FilmeNaoEncontradoException("Nenhum filme com os atores e/ou diretores selecionados foi encontrado.");
 		}
+	}
+	public void saveFilmes() {
+		try {
+			FileOutputStream out = new FileOutputStream("filmes");
+			ObjectOutputStream objOut = new ObjectOutputStream(out);
+			
+			objOut.writeObject(this.listaFilmes);
+			objOut.close();
+		}
+		catch (FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}
+		catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public List<Filme> loadFilmes() {
+		if(new File("filmes").canRead() == true) {
+			try {
+				FileInputStream input = new FileInputStream("filmes");
+				ObjectInputStream objIn = new ObjectInputStream(input);
+				List<Filme> listaFilmes =  (List<Filme>) objIn.readObject();
+				objIn.close();
+				return listaFilmes;
+			}
+			catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
+			}
+			catch(ClassNotFoundException e) {
+				System.out.println(e.getMessage());
+			}
+			catch(IOException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return new ArrayList<Filme>();
+		
 	}
 }

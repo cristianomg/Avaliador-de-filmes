@@ -1,11 +1,14 @@
 package Model;
 
+
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Avaliacao {
-
+public class Avaliacao implements Serializable{
+	private static final long serialVersionUID = 6650565827998284115L;
 	private HashMap<Integer, List<Filme>> listaAvaliacao = new HashMap<Integer, List<Filme>>();
 	
 	public Avaliacao() {
@@ -38,4 +41,7 @@ public class Avaliacao {
 	public HashMap<Integer, List<Filme>> getListaAvaliacao() {
 		return listaAvaliacao;
 	}
+	
+
 }
+

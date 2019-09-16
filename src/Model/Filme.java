@@ -1,9 +1,12 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Filme {
+
+public class Filme implements Serializable{
+	private static final long serialVersionUID = -2640123755227854508L;
 	private String nomeFilme;
 	private String descricao;
 	private List<String> categorias= new ArrayList<String>();
