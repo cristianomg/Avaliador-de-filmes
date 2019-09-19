@@ -30,26 +30,47 @@ public class FilmeDAO {
 	
 	
 	public void insert(Filme filme) {
-		listaFilmes.add(filme);
-		this.saveFilmes();
-		
-	}
-	public boolean remove(Filme filme) {
-		boolean removido = listaFilmes.remove(filme);
-		this.saveFilmes();
-		return removido;
-		
-	}
-	public void update(Filme filmeAntes, Filme filmeAtualizado) throws FilmeNaoEncontradoException {
-		boolean removido = this.remove(filmeAntes);
-		if (removido) {
-			this.insert(filmeAtualizado);
+		boolean contem = false;
+		for(Filme f: listaFilmes) {
+			if(f.getNomeFilme().equals(filme.getNomeFilme())) {
+				contem = true;
+			}
+		}
+		if (!contem) {
+			listaFilmes.add(filme);
 			this.saveFilmes();
 		}
 		else {
-			throw new FilmeNaoEncontradoException("Titulo não encontrado.");
+			System.out.println("Filme jÃ¡ cadastrado.");
 		}
+		
 	}
+	public boolean remove(Filme filme) {
+		for (Filme f: listaFilmes) {
+			if (f.getNomeFilme().equals(filme.getNomeFilme())) {
+				listaFilmes.remove(filme);
+				this.saveFilmes();
+				return true;
+			}
+		}
+		return false;
+	}
+	public void update(Filme filmeAntes, Filme filmeAtualizado) throws FilmeNaoEncontradoException {
+		boolean removido = false;
+		for(Filme filme: listaFilmes) {
+			if (filmeAntes.getNomeFilme().equals(filme.getNomeFilme())) {
+				this.remove(filmeAntes);
+				this.insert(filmeAtualizado);
+				this.saveFilmes();
+				removido = true;
+				break;
+				}
+			}
+			if(!removido){
+				throw new FilmeNaoEncontradoException("Titulo nï¿½o encontrado.");
+			}	
+		}
+
 	
 	public boolean contains(String nome) {
 		for(Filme f: listaFilmes) {
