@@ -75,7 +75,7 @@ public class ControllerPrincipal {
 		try {
 			Filme filme = filmes.getByName(nomeFilme);
 			filmes.remove(filme);
-			System.out.println("Remção realizada com sucesso.");
+			System.out.println("Remoção realizada com sucesso.");
 			voltarMenu();
 		} catch (FilmeNaoEncontradoException e) {
 			System.out.println(e.getMessage());
