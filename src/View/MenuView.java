@@ -41,7 +41,7 @@ public class MenuView {
 			}
 		}
 		catch (InputMismatchException e) {
-			System.out.println("Opção invalida, tente novamente.");
+			System.out.println("OpÃ§Ã£o invalida, tente novamente.");
 
 			this.menuPrincipal();
 		}

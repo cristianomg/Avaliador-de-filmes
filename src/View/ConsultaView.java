@@ -14,20 +14,20 @@ public class ConsultaView extends AtualizacaoView {
 		System.out.println("2- Consultar por Categoria");
 		System.out.println("3- Consultar por Sub Categoria");
 		System.out.println("4- Consultar por Participantes do Filme");
-		System.out.println("5- Consultar por avaliação");
+		System.out.println("5- Consultar por avaliaÃ§Ã£oo");
 		int opc = sc.nextInt();
 		if (opc > 0  && opc < 6) {
 			return opc;
 		}
 		else {
-			throw new IOException("Opção invalida!");
+			throw new IOException("OpÃ§Ã£o invalida!");
 		}
 	}
 	public void listarFilmes(List<Filme> filmes) {
 		System.out.println("----------------------------------------------------");
 		for(Filme f: filmes) {
 			System.out.println("Nome do Filme: " + f.getNomeFilme());
-			System.out.println("Avaliação: "+ f.getClassificacao());
+			System.out.println("AvaliaÃ§Ã£o: "+ f.getClassificacao());
 			System.out.print("Categorias: ");
 			String categorias = String.join(", ", f.getCategorias());
 			System.out.print(categorias);
@@ -40,7 +40,7 @@ public class ConsultaView extends AtualizacaoView {
 			String elenco = String.join(", ", f.getParticipantesFilme());
 			System.out.print(elenco);
 			System.out.println();
-			System.out.print("Descrição: ");
+			System.out.print("DescriÃ§Ã£o: ");
 			System.out.print(f.getDescricao());
 			System.out.println();
 			System.out.println("----------------------------------------------------");

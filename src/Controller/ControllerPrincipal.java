@@ -39,7 +39,7 @@ public class ControllerPrincipal {
 			System.out.println("Cadastro realizado com sucesso.");
 		}
 		else {
-			System.out.println("O titulo j· est· cadastrado.");
+			System.out.println("O titulo j√° est√° cadastrado.");
 		}
 		voltarMenu();
 	}
@@ -59,7 +59,7 @@ public class ControllerPrincipal {
 			List<String> participantesFilme = cadastroView.cadastroParticipantesFilme();
 			Filme newFilme = new Filme(nomeFilme, descricao, categoria, subcategoria, participantesFilme);
 			filmes.update(filmeAnterior, newFilme);
-			System.out.println("AtualizaÁ„o realizada com sucesso.");
+			System.out.println("Atualiza√ß√£o realizada com sucesso.");
 			voltarMenu();
 		} catch (FilmeNaoEncontradoException e) {
 			System.out.println(e.getMessage());
@@ -75,7 +75,7 @@ public class ControllerPrincipal {
 		try {
 			Filme filme = filmes.getByName(nomeFilme);
 			filmes.remove(filme);
-			System.out.println("RemoÁ„o realizada com sucesso.");
+			System.out.println("Rem√ß√£o realizada com sucesso.");
 			voltarMenu();
 		} catch (FilmeNaoEncontradoException e) {
 			System.out.println(e.getMessage());
@@ -84,7 +84,7 @@ public class ControllerPrincipal {
 	}
 	
 	public void consultar() {
-		int opc;
+		Integer opc;
 		try {
 			opc = consultaView.consultaMenu();
 			switch(opc) {
@@ -127,7 +127,7 @@ public class ControllerPrincipal {
 				}
 				break;
 			case 5:
-				System.out.print("Informe a avaliaÁ„o minima para a busca: ");
+				System.out.print("Informe a nota de avalia√ß√£o minima para a busca: ");
 				Integer nota = sc.nextInt();
 				for(Integer i = 5; i>= nota; i--) {
 					List<Filme> listFilmes = avaliacao.getFilmes(i);  // solicitar o nome do filme para a view
@@ -139,6 +139,7 @@ public class ControllerPrincipal {
 			}
 			voltarMenu();
 		} catch (IOException e1) {
+			opc = null;
 			System.out.println(e1.getMessage());
 			voltarMenu();
 		}
@@ -151,7 +152,7 @@ public class ControllerPrincipal {
 		menu.menuPrincipal();
 		}
 		else {
-			System.out.println("OpÁ„o invalida");
+			System.out.println("Op√ß√£o invalida");
 			voltarMenu();
 			}
 		}
@@ -167,7 +168,7 @@ public class ControllerPrincipal {
 			newAvaliacao.avaliar(nota, filmeAntes);
 			filmeAntes.setClassificacao(nota);
 			avaliacao.saveAvaliacao();
-			System.out.println("AvaliaÁ„o realizada com sucesso.");
+			System.out.println("Avalia√ß√£o realizada com sucesso.");
 			voltarMenu();
 		} catch (FilmeNaoEncontradoException e) {
 			System.out.println(e.getMessage());

@@ -10,7 +10,7 @@ public class CadastroView {
 	public String[] cadastroFilme(){
 		System.out.print("Nome do Filme: ");
 		String nomeFilme = sc.nextLine();
-		System.out.print("DescriÁ„o do Filme: ");
+		System.out.print("Descri√ß√£o do Filme: ");
 		String descricao = sc.nextLine();
 		String response[] = {nomeFilme, descricao};
 		return response;
@@ -18,24 +18,24 @@ public class CadastroView {
 
 	public List<String> cadastroCategorias() {
 		List<String> response = new ArrayList<String>();
-		System.out.println("1- AÁ„o");
+		System.out.println("1- A√ß√£o");
 		System.out.println("2- Aventura");
 		System.out.println("3- Romance");
 		System.out.println("4- Drama");
 		System.out.println("5- Suspense");
 		System.out.println("6- Terror");
-		System.out.println("7- finalizar inserÁ„o");
+		System.out.println("7- finalizar inser√ß√£o");
 		boolean app = true;
 		while (app) {
-			System.out.print("OpÁ„o: ");
+			System.out.print("Op√ß√£o: ");
 			String opc = sc.next();
 			switch(opc) {
 			case "1":
-				if(!response.contains("AÁ„o")) {
-					response.add("AÁ„o");
+				if(!response.contains("A√ß√£o")) {
+					response.add("A√ß√£o");
 				}
 				else {
-					System.out.println("Categoria j· adicionada.");
+					System.out.println("Categoria j√° adicionada.");
 				}
 				break;
 			case "2":
@@ -43,7 +43,7 @@ public class CadastroView {
 					response.add("Aventura");
 				}
 				else {
-					System.out.println("Categoria j· adicionada.");
+					System.out.println("Categoria j√° adicionada.");
 				}
 				break;
 			case "3":
@@ -51,7 +51,7 @@ public class CadastroView {
 					response.add("Romance");
 				}
 				else {
-					System.out.println("Categoria j· adicionada.");
+					System.out.println("Categoria j√° adicionada.");
 				}
 				break;
 			case "4":
@@ -59,7 +59,7 @@ public class CadastroView {
 					response.add("Drama");
 				}
 				else {
-					System.out.println("Categoria j· adicionada.");
+					System.out.println("Categoria j√° adicionada.");
 				}
 				break;
 			case "5":
@@ -67,7 +67,7 @@ public class CadastroView {
 					response.add("Suspense");
 				}
 				else {
-					System.out.println("Categoria j· adicionada.");
+					System.out.println("Categoria j√° adicionada.");
 				}
 				break;
 			case "6":
@@ -75,14 +75,14 @@ public class CadastroView {
 					response.add("Terror");
 				}
 				else {
-					System.out.println("Categoria j· adicionada.");
+					System.out.println("Categoria j√° adicionada.");
 				}
 				break;
 			case "7":
 				app = false;
 				break;
 			default:
-				System.out.println("OpÁ„o invalida, tente novamente.");
+				System.out.println("Op√ß√£o invalida, tente novamente.");
 			}
 		}
 		return response;
@@ -91,13 +91,13 @@ public class CadastroView {
 	public List<String> cadastroSubCategorias() {
 		List<String> response = new ArrayList<String>();
 		System.out.println("1- Policial");
-		System.out.println("2- AnimaÁ„o");
+		System.out.println("2- Anima√ß√£o");
 		System.out.println("3- Besteirol");
 		System.out.println("4- Brasileiro");
-		System.out.println("5- finalizar inserÁ„o");
+		System.out.println("5- finalizar inser√ß√£o");
 		boolean app = true;
 		while (app) {
-			System.out.println("OpÁ„o: ");
+			System.out.println("Op√ß√£o: ");
 			String opc = sc.next();
 			switch(opc) {
 			case "1":
@@ -105,15 +105,15 @@ public class CadastroView {
 					response.add("Policial");
 				}
 				else {
-					System.out.println("Sub Categoria j· adicionada.");
+					System.out.println("Sub Categoria j√° adicionada.");
 				}
 				break;
 			case "2":
-				if(!response.contains("AnimaÁ„o")){
-					response.add("AnimaÁ„o");
+				if(!response.contains("Anima√ß√£o")){
+					response.add("Anima√ß√£o");
 				}
 				else {
-					System.out.println("Sub Categoria j· adicionada.");
+					System.out.println("Sub Categoria jÔøΩ adicionada.");
 				}
 				break;
 			case "3":
@@ -121,7 +121,7 @@ public class CadastroView {
 					response.add("Besteirol");
 				}
 				else {
-					System.out.println("Sub Categoria j· adicionada.");
+					System.out.println("Sub Categoria j√° adicionada.");
 				}
 				break;
 			case "4":
@@ -129,14 +129,14 @@ public class CadastroView {
 					response.add("Brasileiro");
 				}
 				else {
-					System.out.println("Sub Categoria j· adicionada.");
+					System.out.println("Sub Categoria j√° adicionada.");
 				}
 				break;
 			case "5":
 				app = false;
 				break;
 			default:
-				System.out.println("OpÁ„o invalida, tente novamente.");
+				System.out.println("Op√ß√£o invalida, tente novamente.");
 			}
 		}
 		return response;

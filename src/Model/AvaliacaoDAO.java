@@ -15,7 +15,7 @@ public class AvaliacaoDAO {
 	private Avaliacao avaliacao;
 	
 	private AvaliacaoDAO(){
-		this.avaliacao = this.loadAvaliação();
+		this.avaliacao = this.loadAvaliacao();
 	}
 	
 	public static synchronized AvaliacaoDAO getInstance() {
@@ -52,7 +52,7 @@ public class AvaliacaoDAO {
 		}
 	}
 	
-	public Avaliacao loadAvaliação() {
+	public Avaliacao loadAvaliacao() {
 		if(new File("avaliacao").canRead() == true) {
 			try {
 				FileInputStream input = new FileInputStream("avaliacao");
