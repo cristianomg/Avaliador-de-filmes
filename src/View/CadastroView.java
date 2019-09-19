@@ -113,7 +113,7 @@ public class CadastroView {
 					response.add("Animação");
 				}
 				else {
-					System.out.println("Sub Categoria j� adicionada.");
+					System.out.println("Sub Categoria já adicionada.");
 				}
 				break;
 			case "3":

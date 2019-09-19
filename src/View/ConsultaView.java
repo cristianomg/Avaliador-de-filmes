@@ -14,7 +14,7 @@ public class ConsultaView extends AtualizacaoView {
 		System.out.println("2- Consultar por Categoria");
 		System.out.println("3- Consultar por Sub Categoria");
 		System.out.println("4- Consultar por Participantes do Filme");
-		System.out.println("5- Consultar por avaliaçãoo");
+		System.out.println("5- Consultar por avaliação");
 		int opc = sc.nextInt();
 		if (opc > 0  && opc < 6) {
 			return opc;
